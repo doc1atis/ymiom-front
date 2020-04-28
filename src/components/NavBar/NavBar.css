@@ -13,10 +13,17 @@
   padding-bottom: 15px;
   padding-right: 10px;
   padding-left: 5px;
+  height: 75px;
 }
 .brand-word {
   color: white;
-
+  cursor: pointer;
   text-transform: uppercase;
   font-family: "Righteous", cursive;
+  margin-left: 20px;
+}
+@media (max-width: 600px) {
+  .brand-word {
+    margin-left: 0px;
+  }
 }
