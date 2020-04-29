@@ -27,7 +27,7 @@ export default class AuthDorm extends Component {
         // PREVENT DUPLICATE TOAST ON CLICK
         if (!toast.isActive(this.toastId)) {
           toast.configure({
-            autoClose: 5000,
+            autoClose: 2000,
             bodyClassName: "toast-body",
             className: "entire-toast",
             transition: Bounce,
