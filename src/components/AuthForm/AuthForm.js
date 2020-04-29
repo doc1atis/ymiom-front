@@ -33,6 +33,7 @@ export default class AuthDorm extends Component {
             transition: Bounce,
             position: toast.POSITION.TOP_CENTER,
             closeButton: false,
+            draggablePercent: 5,
           });
           this.toastId = toast.error(error.response.data.message);
         }
