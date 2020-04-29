@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
 import LowerMenu from "./components/LowerMenu/LowerMenu";
 import LoginForm from "./components/LoginForm/LoginForm";
+import RegisterForm from "./components/RegisterForm/RegisterForm";
+import history from "./history";
 export default class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <Router history={history}>
         <div
           id="app-react-root"
           style={{
@@ -30,13 +32,13 @@ export default class App extends Component {
               backgroundColor: "#0B0C10",
               gridRowStart: "2",
               gridRowEnd: "-1",
-              color: "white",
             }}
           >
             <Route path="/login" exact component={LoginForm} />
+            <Route path="/register" exact component={RegisterForm} />
           </div>
         </div>
-      </BrowserRouter>
+      </Router>
     );
   }
 }

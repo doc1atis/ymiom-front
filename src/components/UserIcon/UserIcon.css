@@ -18,3 +18,37 @@
 .entire-toast {
   margin-top: 20vh;
 }
+
+.entire-dropdown {
+  background-color: white;
+  position: absolute;
+  right: 10px;
+  top: 75px;
+  width: 15vw;
+  min-width: 200px;
+  max-width: 210px;
+}
+.side-options {
+  list-style: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 30vh;
+  max-height: 300px;
+  min-height: 200px;
+}
+.side-item {
+  background-color: #0e0f16;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  height: 20%;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 2px;
+}
+.remove-drop {
+  display: none;
+}

@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-
+import "./AuthForm.css";
 export default class AuthDorm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log("form submitted olgy yeahhh");
   };
   render() {
     return (
@@ -14,15 +15,9 @@ export default class AuthDorm extends Component {
             className="form-input"
             type="password"
           />
-          <button
-            type="submit"
-            className="form-button"
-            onClick={this.handleClick}
-          >
-            <span className="button-icon">
-              <i className="fas fa-user-lock"></i>
-            </span>
-            <span className="button-text">login</span>
+          <button type="submit" className="form-button">
+            <span className="button-icon">{this.props.buttonIcon}</span>
+            <span className="button-text">{this.props.buttontext}</span>
           </button>
         </form>
       </div>
