@@ -6,6 +6,7 @@ export default class RegisterForm extends Component {
       <AuthForm
         buttonIcon={<i className="fas fa-user-minus"></i>}
         buttontext="register"
+        formName="registerForm"
       />
     );
   }

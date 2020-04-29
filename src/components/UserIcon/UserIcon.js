@@ -1,32 +1,15 @@
 import React, { Component } from "react";
-import Dropdown from "react-dropdown";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import history from "../../history";
 import "./UserIcon.css";
 export default class UserIcon extends Component {
   state = { isClicked: false };
   dropRef = React.createRef();
-  toastId = null;
+
   componentDidMount() {
     this.dropRef.current.classList.add("remove-drop");
   }
   handleClick = () => {
-    // PREVENT DUPLICATE TOAST ON CLICK
-    // if (!toast.isActive(this.toastId)) {
-    //   toast.configure({
-    //     containerId: "A",
-    //     autoClose: false,
-    //     bodyClassName: "toast-body",
-    //     className: "entire-toast",
-    //     progressClassName: "toast-progress",
-    //     position: toast.POSITION.TOP_CENTER,
-    //     closeButton: false,
-    //     closeOnClick: false,
-    //   });
-    //   this.toastId = toast((closeToast) => <LoginForm />);
-    // }
-    // history.push("/login");
-    // this.setState({ isClicked: true });
     this.dropRef.current.classList.toggle("remove-drop");
   };
   loginClick = () => {

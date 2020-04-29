@@ -20,6 +20,11 @@ export default class LowerMenu extends Component {
           text={"likes"}
           mobileclass="lower-button-mobile"
         />
+        <LowerButton
+          icon={<i className="fas fa-broadcast-tower"></i>}
+          text={"stations"}
+          mobileclass="lower-button-mobile"
+        />
       </div>
     );
   }

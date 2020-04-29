@@ -11,6 +11,7 @@ export default class LoginForm extends Component {
       <AuthForm
         buttonIcon={<i className="fas fa-user-lock"></i>}
         buttontext="login"
+        formName="loginForm"
       />
     );
   }

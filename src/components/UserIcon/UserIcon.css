@@ -5,19 +5,6 @@
   padding-top: 0px;
   padding-bottom: 0px;
 }
-.toast-progress {
-  background: none;
-}
-.toast-body {
-  color: red;
-  border-radius: 5px;
-  background-color: seagreen;
-  height: 75px;
-  cursor: default;
-}
-.entire-toast {
-  margin-top: 20vh;
-}
 
 .entire-dropdown {
   background-color: white;
