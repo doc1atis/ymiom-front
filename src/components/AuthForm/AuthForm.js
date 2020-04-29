@@ -23,7 +23,6 @@ export default class AuthDorm extends Component {
         error.response.status === 400 &&
         error.response.data.alreadyRegistered
       ) {
-        console.log("already registered");
         // PREVENT DUPLICATE TOAST ON CLICK
         if (!toast.isActive(this.toastId)) {
           toast.configure({
@@ -33,7 +32,7 @@ export default class AuthDorm extends Component {
             transition: Bounce,
             position: toast.POSITION.TOP_CENTER,
             closeButton: false,
-            draggablePercent: 5,
+            draggablePercent: 40,
           });
           this.toastId = toast.error(error.response.data.message);
         }
