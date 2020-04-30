@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-// import { toast } from "react-toastify";
 import history from "../../history";
 import "./UserIcon.css";
-export default class UserIcon extends Component {
+import { connect } from "react-redux";
+import logout from "../../redux/actionCreators/logout";
+class UserIcon extends Component {
   state = { isClicked: false };
   dropRef = React.createRef();
 
@@ -17,8 +18,8 @@ export default class UserIcon extends Component {
     this.dropRef.current.classList.add("remove-drop");
   };
   logoutClick = () => {
-    history.push("/");
     this.dropRef.current.classList.add("remove-drop");
+    this.props.logout();
   };
   registerClick = () => {
     history.push("/register");
@@ -40,18 +41,28 @@ export default class UserIcon extends Component {
         <span ref={this.dropRef} className="entire-dropdown">
           <ul className="side-options">
             <li className="side-item">Tlogipai</li>
-            <li onClick={this.loginClick} className="side-item">
-              login
-            </li>
-            <li onClick={this.logoutClick} className="side-item">
-              logout
-            </li>
-            <li onClick={this.registerClick} className="side-item">
-              register
-            </li>
+            {!this.props.isAuth ? (
+              <li onClick={this.loginClick} className="side-item">
+                login
+              </li>
+            ) : null}
+            {this.props.isAuth ? (
+              <li onClick={this.logoutClick} className="side-item">
+                logout
+              </li>
+            ) : null}
+            {this.props.isAuth ? null : (
+              <li onClick={this.registerClick} className="side-item">
+                register
+              </li>
+            )}
           </ul>
         </span>
       </div>
     );
   }
 }
+const mapStateToProps = (state) => {
+  return { isAuth: state.authReducer.isAuth };
+};
+export default connect(mapStateToProps, { logout })(UserIcon);

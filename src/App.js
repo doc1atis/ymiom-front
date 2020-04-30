@@ -4,8 +4,14 @@ import NavBar from "./components/NavBar/NavBar";
 import LowerMenu from "./components/LowerMenu/LowerMenu";
 import LoginForm from "./components/LoginForm/LoginForm";
 import RegisterForm from "./components/RegisterForm/RegisterForm";
+import HomePage from "./components/HomePage/HomePage";
 import history from "./history";
-export default class App extends Component {
+import { connect } from "react-redux";
+import checkToken from "./redux/actionCreators/checkToken";
+class App extends Component {
+  componentDidMount() {
+    this.props.checkToken();
+  }
   render() {
     return (
       <Router history={history}>
@@ -34,6 +40,7 @@ export default class App extends Component {
               gridRowEnd: "-1",
             }}
           >
+            <Route path="/" exact component={HomePage} />
             <Route path="/login" exact component={LoginForm} />
             <Route path="/register" exact component={RegisterForm} />
           </div>
@@ -42,3 +49,4 @@ export default class App extends Component {
     );
   }
 }
+export default connect(null, { checkToken })(App);

@@ -3,9 +3,30 @@ import FormInput from "../FormInput/FormInput";
 import "./AuthForm.css";
 import API from "../../API/api";
 import { toast, Bounce } from "react-toastify";
-export default class AuthDorm extends Component {
+import { connect } from "react-redux";
+import login from "../../redux/actionCreators/login";
+import history from "../../history";
+class AuthForm extends Component {
   state = { username: "", password: "" };
   toastId = null;
+  toastConfiguration = {
+    autoClose: 2000,
+    bodyClassName: "toast-body",
+    className: "entire-toast",
+    transition: Bounce,
+    position: toast.POSITION.TOP_CENTER,
+    closeButton: false,
+    draggablePercent: 40,
+  };
+  componentDidMount() {
+    toast.configure(this.toastConfiguration);
+  }
+  componentDidUpdate() {
+    if (this.props.isAuth) {
+      history.push("/");
+    }
+  }
+
   handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -14,9 +35,13 @@ export default class AuthDorm extends Component {
           username: this.state.username,
           password: this.state.password,
         });
-        console.log(response.data);
+
+        history.push("/");
+        this.toastId = toast.success(response.data.message);
       } else if (e.target.name === "loginForm") {
-        console.log("olgy login");
+        // TRY TO LOG USER IN BASED ON THE FORM NAME
+        const { username, password } = this.state;
+        this.props.login({ username, password });
       }
     } catch (error) {
       if (
@@ -25,21 +50,13 @@ export default class AuthDorm extends Component {
       ) {
         // PREVENT DUPLICATE TOAST ON CLICK
         if (!toast.isActive(this.toastId)) {
-          toast.configure({
-            autoClose: 2000,
-            bodyClassName: "toast-body",
-            className: "entire-toast",
-            transition: Bounce,
-            position: toast.POSITION.TOP_CENTER,
-            closeButton: false,
-            draggablePercent: 40,
-          });
           this.toastId = toast.error(error.response.data.message);
         }
       }
     }
   };
   handleChange = (e) => {
+    // DISPATCH ACTION TO UPDATE REDUX STATE
     this.setState({ [e.target.name]: e.target.value });
   };
   render() {
@@ -73,3 +90,12 @@ export default class AuthDorm extends Component {
     );
   }
 }
+function mapStateToProps(entireState) {
+  console.log(entireState);
+
+  return {
+    isAuth: entireState.authReducer.isAuth,
+  };
+}
+
+export default connect(mapStateToProps, { login })(AuthForm);

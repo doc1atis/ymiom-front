@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import UserIcon from "../UserIcon/UserIcon";
 import LowerButton from "../LowerButton/LowerButton";
 import "./RightMenu.css";
-export default class RightMenu extends Component {
+import { connect } from "react-redux";
+class RightMenu extends Component {
   render() {
     return (
       <>
@@ -12,16 +13,25 @@ export default class RightMenu extends Component {
             text={"uploads"}
           />
           <LowerButton
+            icon={<i className="fas fa-broadcast-tower"></i>}
+            text={"stations"}
+            mobileclass="lower-button-mobile"
+          />
+          <LowerButton
             icon={<i className="fas fa-assistive-listening-systems"></i>}
             text={"playlists"}
           />
           <LowerButton icon={<i className="fas fa-heart"></i>} text={"likes"} />
-          <UserIcon authenticated={false} />
+          <UserIcon authenticated={this.props.isAuth} />
         </div>
         <div className="mobile-user">
-          <UserIcon authenticated={false} />
+          <UserIcon authenticated={this.props.isAuth} />
         </div>
       </>
     );
   }
 }
+const mapStateToProps = (state) => {
+  return { isAuth: state.authReducer.isAuth };
+};
+export default connect(mapStateToProps, {})(RightMenu);

@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import AuthForm from "../AuthForm/AuthForm";
 import "./LoginForm.css";
-export default class LoginForm extends Component {
-  handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("form submitted olgy yeahhh");
-  };
+class LoginForm extends Component {
   render() {
     return (
       <AuthForm
@@ -16,3 +12,5 @@ export default class LoginForm extends Component {
     );
   }
 }
+
+export default LoginForm;

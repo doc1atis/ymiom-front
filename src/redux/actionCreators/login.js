@@ -1,0 +1,27 @@
+import { LOGIN } from "../actionTypes";
+import API from "../../API/api";
+import history from "../../history";
+import { toast } from "react-toastify";
+// ASYNC ACTION CREATOR
+const login = (userInfo) => {
+  return async function (dispatch, getState) {
+    try {
+      const response = await API.post("/users/login", userInfo);
+      localStorage.setItem("token", response.data.token);
+      dispatch({ type: LOGIN, payload: true });
+      history.push("/");
+      toast.success("login successfully", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    } catch (error) {
+      console.dir(error);
+
+      dispatch({ type: LOGIN, payload: false });
+      if (error.response.status === 401) {
+        toast.error("invalid password or username");
+      }
+    }
+  };
+};
+
+export default login;
