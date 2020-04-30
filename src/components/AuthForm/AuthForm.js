@@ -2,30 +2,13 @@ import React, { Component } from "react";
 import FormInput from "../FormInput/FormInput";
 import "./AuthForm.css";
 import API from "../../API/api";
-import { toast, Bounce } from "react-toastify";
+import { toast } from "react-toastify";
 import { connect } from "react-redux";
 import login from "../../redux/actionCreators/login";
 import history from "../../history";
 class AuthForm extends Component {
   state = { username: "", password: "" };
   toastId = null;
-  toastConfiguration = {
-    autoClose: 2000,
-    bodyClassName: "toast-body",
-    className: "entire-toast",
-    transition: Bounce,
-    position: toast.POSITION.TOP_CENTER,
-    closeButton: false,
-    draggablePercent: 40,
-  };
-  componentDidMount() {
-    toast.configure(this.toastConfiguration);
-  }
-  componentDidUpdate() {
-    if (this.props.isAuth) {
-      history.push("/");
-    }
-  }
 
   handleSubmit = async (e) => {
     e.preventDefault();
@@ -90,10 +73,5 @@ class AuthForm extends Component {
     );
   }
 }
-function mapStateToProps(entireState) {
-  return {
-    isAuth: entireState.authReducer.isAuth,
-  };
-}
 
-export default connect(mapStateToProps, { login })(AuthForm);
+export default connect(null, { login })(AuthForm);

@@ -4,7 +4,7 @@ import history from "../../history";
 import { toast } from "react-toastify";
 // ASYNC ACTION CREATOR
 const login = (userInfo) => {
-  return async function (dispatch, getState) {
+  return async function (dispatch) {
     try {
       const response = await API.post("/users/login", userInfo);
       localStorage.setItem("token", response.data.token);
@@ -12,13 +12,17 @@ const login = (userInfo) => {
       history.push("/");
       toast.success("login successfully", {
         position: toast.POSITION.TOP_CENTER,
+
+        closeButton: false,
       });
     } catch (error) {
       console.dir(error);
 
       dispatch({ type: LOGIN, payload: false });
       if (error.response.status === 401) {
-        toast.error("invalid password or username");
+        toast.error("invalid password or username", {
+          position: toast.POSITION.TOP_CENTER,
+        });
       }
     }
   };

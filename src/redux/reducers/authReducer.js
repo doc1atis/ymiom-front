@@ -7,7 +7,7 @@ export default function (state = INITIAL_STATE, action) {
     case LOGOUT:
       return { ...state, isAuth: action.payload };
     case LOGIN:
-      return { ...state, isAuth: action.payload, toHome: true };
+      return { ...state, isAuth: action.payload };
 
     default:
       return state;
