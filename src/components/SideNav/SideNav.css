@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@500&display=swap");
+.side-nav {
+  position: fixed;
+  height: 100%;
+  width: 0px;
+  max-width: 0px;
+  overflow-x: hidden;
+  top: 75px;
+  right: 0;
+  background-color: rgb(8, 8, 14);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 75px;
+  align-items: center;
+  /* TRANSITION TIME */
+  transition: 0.5s;
+}
+.nav-item {
+  background-color: rgba(238, 130, 238, 0.064);
+  color: white;
+  text-decoration: none;
+  /* TRANSITION TIME */
+  transition: 0.3s;
+  margin-bottom: 45px;
+  width: 70%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 40px;
+  font-size: 1.2rem;
+  font-family: "Rajdhani", sans-serif;
+  text-transform: uppercase;
+}
+
+.open-close-nav {
+  width: 60vw;
+  max-width: 250px;
+}
+.nav-item-icon {
+  color: turquoise;
+  /* font-size: 1.6rem; */
+}

@@ -9,12 +9,14 @@
   align-items: center;
   width: 60px;
   height: 60px;
+  /* PREVENT MOBILE BUTTON HEIGHLIGHT COLOR ON CLICK */
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   transition: hover 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .lower-button:hover {
   transform: translateY(-3px);
 }
+/* PREVENT MOBILE CLICK TO BEHAVE AS HOVER EVENT */
 @media (hover: none) {
   .lower-button:hover {
     transform: none;

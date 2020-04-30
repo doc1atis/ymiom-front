@@ -5,6 +5,7 @@
   position: relative;
 }
 .search-input {
+  /* ALLOW INPUT HEIGHT TO CHANGE */
   -webkit-appearance: none;
   font-size: 0.9rem;
   height: 35px;
