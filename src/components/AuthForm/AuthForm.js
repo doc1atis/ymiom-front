@@ -91,8 +91,6 @@ class AuthForm extends Component {
   }
 }
 function mapStateToProps(entireState) {
-  console.log(entireState);
-
   return {
     isAuth: entireState.authReducer.isAuth,
   };
