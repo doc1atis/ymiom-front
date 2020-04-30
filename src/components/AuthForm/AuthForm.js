@@ -69,14 +69,14 @@ class AuthForm extends Component {
         >
           <FormInput
             onInputChange={this.handleChange}
-            inputPlaceHolder="Username"
+            InputPlaceHolder="Username"
             inputType="text"
             inputName="username"
             inputValue={this.state.username}
           />
           <FormInput
             onInputChange={this.handleChange}
-            inputPlaceHolder="Password"
+            InputPlaceHolder="Password"
             inputType="password"
             inputName="password"
             inputValue={this.state.password}
