@@ -1,46 +1,74 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import logout from "../../redux/actionCreators/logout";
+import SideNavItem from "../SideNavItem/SideNaveItem";
 // COMPONENT STYLING
 import "./SideNav.css";
 class SideNav extends Component {
-  handleLoginClick = () => {
+  itemRef = React.createRef();
+  handleItemClick = () => {
     this.props.sideNavRef.current.classList.remove("open-close-nav");
+
+    if (this.itemRef.current.name === "logout") {
+      this.props.logout();
+    }
   };
-  handleLogout = () => {
-    this.props.sideNavRef.current.classList.remove("open-close-nav");
-    this.props.logout();
+
+  display = (isAuth) => {
+    if (isAuth) {
+      return (
+        <>
+          <SideNavItem
+            itemRoute="/profile"
+            itemIcon={<i className="far fa-user-circle"></i>}
+            itemText="Account"
+            itemAction={this.handleItemClick}
+            itemRef={this.itemRef}
+            itemName="account"
+          />
+          <SideNavItem
+            itemRoute="/login"
+            itemIcon={<i className="fas fa-user-slash"></i>}
+            itemText="Logout"
+            itemAction={this.handleItemClick}
+            itemRef={this.itemRef}
+            itemName="logout"
+          />
+        </>
+      );
+    } else {
+      return (
+        <>
+          <SideNavItem
+            itemRoute="/login"
+            itemIcon={<i className="fas fa-users"></i>}
+            itemText="Login"
+            itemAction={this.handleItemClick}
+            itemRef={this.itemRef}
+            itemName="login"
+          />
+
+          <SideNavItem
+            itemRoute="/register"
+            itemIcon={<i className="fas fa-user-plus"></i>}
+            itemText="Register"
+            itemAction={this.handleItemClick}
+            itemRef={this.itemRef}
+            itemName="register"
+          />
+        </>
+      );
+    }
   };
   render() {
     return (
       <div ref={this.props.sideNavRef} className="side-nav">
-        <Link className="nav-item" to="/profile">
-          <span className="nav-item-icon">
-            <i className="far fa-user-circle"></i>
-          </span>
-          <span className="nav-item-text">Account</span>
-        </Link>
-        <Link onClick={this.handleLoginClick} className="nav-item" to="/login">
-          <span className="nav-item-icon">
-            <i className="fas fa-users"></i>
-          </span>
-          <span className="nav-item-text">Login</span>
-        </Link>
-        <Link onClick={this.handleLogout} className="nav-item" to="/login">
-          <span className="nav-item-icon">
-            <i className="fas fa-user-slash"></i>
-          </span>
-          <span className="nav-item-text">Logout</span>
-        </Link>
-        <Link className="nav-item" to="/register">
-          <span className="nav-item-icon">
-            <i className="fas fa-user-plus"></i>
-          </span>
-          <span className="nav-item-text">Register</span>
-        </Link>
+        {this.display(this.props.isAuth)}
       </div>
     );
   }
 }
-export default connect(null, { logout })(SideNav);
+const mapSateToProps = (state) => {
+  return { isAuth: state.authReducer.isAuth };
+};
+export default connect(mapSateToProps, { logout })(SideNav);

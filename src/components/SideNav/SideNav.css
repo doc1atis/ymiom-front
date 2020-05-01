@@ -17,29 +17,8 @@
   /* TRANSITION TIME */
   transition: 0.5s;
 }
-.nav-item {
-  background-color: rgba(238, 130, 238, 0.386);
-  color: white;
-  text-decoration: none;
-  /* TRANSITION TIME */
-  transition: 0.3s;
-  margin-bottom: 45px;
-  width: 70%;
-  /* PREVENT WIGGLE MOTION */
-  min-width: 200px;
-  text-align: center;
-  padding: 10px;
-  border-radius: 40px;
-  font-size: 1.2rem;
-  font-family: "Rajdhani", sans-serif;
-  text-transform: uppercase;
-}
 
 .open-close-nav {
   width: 60vw;
   max-width: 250px;
-}
-.nav-item-icon {
-  color: turquoise;
-  /* font-size: 1.6rem; */
 }

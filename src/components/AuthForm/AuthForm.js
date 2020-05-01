@@ -14,13 +14,13 @@ class AuthForm extends Component {
     e.preventDefault();
     try {
       if (e.target.name === "registerForm") {
-        const response = await API.post("/users/register", {
+        await API.post("/users/register", {
           username: this.state.username,
           password: this.state.password,
         });
 
-        history.push("/");
-        this.toastId = toast.success(response.data.message);
+        history.push("/login");
+        this.toastId = toast.success("registration was successful");
       } else if (e.target.name === "loginForm") {
         // TRY TO LOG USER IN BASED ON THE FORM NAME
         const { username, password } = this.state;
