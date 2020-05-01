@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import logout from "../../redux/actionCreators/logout";
 // COMPONENT STYLING
 import "./SideNav.css";
-export default class SideNav extends Component {
+class SideNav extends Component {
+  handleLoginClick = () => {
+    this.props.sideNavRef.current.classList.remove("open-close-nav");
+  };
+  handleLogout = () => {
+    this.props.sideNavRef.current.classList.remove("open-close-nav");
+    this.props.logout();
+  };
   render() {
     return (
       <div ref={this.props.sideNavRef} className="side-nav">
@@ -12,13 +21,13 @@ export default class SideNav extends Component {
           </span>
           <span className="nav-item-text">Account</span>
         </Link>
-        <Link className="nav-item" to="/login">
+        <Link onClick={this.handleLoginClick} className="nav-item" to="/login">
           <span className="nav-item-icon">
             <i className="fas fa-users"></i>
           </span>
           <span className="nav-item-text">Login</span>
         </Link>
-        <Link className="nav-item" to="/logout">
+        <Link onClick={this.handleLogout} className="nav-item" to="/login">
           <span className="nav-item-icon">
             <i className="fas fa-user-slash"></i>
           </span>
@@ -34,3 +43,4 @@ export default class SideNav extends Component {
     );
   }
 }
+export default connect(null, { logout })(SideNav);
