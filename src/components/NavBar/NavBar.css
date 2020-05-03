@@ -24,6 +24,12 @@
 }
 @media (max-width: 600px) {
   .brand-word {
+    margin-left: 5px;
+  }
+}
+@media (max-width: 375px) {
+  .brand-word {
     margin-left: 0px;
+    font-size: 1.2rem;
   }
 }

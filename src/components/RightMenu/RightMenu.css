@@ -8,14 +8,15 @@
 .mobile-user {
   width: max-content;
 }
-/* 1 ---> infinity */
-@media (min-width: 1px) {
+/* 0px ---> infinity */
+@media (min-width: 0px) {
   .right-menu {
     display: none;
   }
 }
-/* 600 ---------> infinity */
-@media (min-width: 769px) {
+/* 769 ---------> infinity */
+/* hide it from 0 to 900 */
+@media (min-width: 900px) {
   .right-menu {
     display: inherit;
   }
