@@ -1,18 +1,25 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-export default (ChildComponent) => {
+import checkToken from "../../redux/actionCreators/checkToken";
+export default (ChildComponent, unAuthPath) => {
   class ComposedComponent extends Component {
     componentDidMount() {
+      // PREVENT TOKEN MANIPULATION IN BROWSER
+
       this.protectRoute();
     }
+
     componentDidUpdate() {
       this.protectRoute();
-    }
-    protectRoute() {
-      if (this.props.isAuth) {
-        this.props.history.push("/");
+      if (!checkToken().payload) {
+        this.props.history.push(unAuthPath);
       }
     }
+    protectRoute = () => {
+      if (!this.props.isAuth) {
+        this.props.history.push(unAuthPath);
+      }
+    };
     render() {
       return <ChildComponent />;
     }
@@ -20,5 +27,5 @@ export default (ChildComponent) => {
   const mapStateToprops = (state) => {
     return { isAuth: state.authReducer.isAuth };
   };
-  return connect(mapStateToprops, {})(ComposedComponent);
+  return connect(mapStateToprops, { checkToken })(ComposedComponent);
 };

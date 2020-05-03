@@ -11,17 +11,23 @@ class RightMenu extends Component {
           <LowerButton
             icon={<i className="fas fa-cloud-upload-alt"></i>}
             text={"uploads"}
+            navigateTo="/uploads"
           />
           <LowerButton
             icon={<i className="fas fa-broadcast-tower"></i>}
             text={"stations"}
-            mobileclass="lower-button-mobile"
+            navigateTo="/stations"
           />
           <LowerButton
             icon={<i className="fas fa-assistive-listening-systems"></i>}
             text={"playlists"}
+            navigateTo="/playlists"
           />
-          <LowerButton icon={<i className="fas fa-heart"></i>} text={"likes"} />
+          <LowerButton
+            icon={<i className="fas fa-heart"></i>}
+            text={"likes"}
+            navigateTo="/likes"
+          />
           <UserIcon authenticated={this.props.isAuth} />
         </div>
         <div className="mobile-user">

@@ -5,8 +5,20 @@ export default Axios.create({
     process.env.REACT_APP_APP_PHASE === "development"
       ? "http://localhost:3001/api"
       : "/api",
-  headers: {
-    "authorization-x-token": localStorage.getItem("jwtToken"),
-    // "content-type": "multipart/form-data"
-  },
 });
+
+// Alter defaults after instance has been created
+// API.defaults.headers.common['authorization-x-token'] = AUTH_TOKEN;
+/*
+SEND AUTHORIZED REQUEST
+const token = checkToken().payload
+if(token){
+  API.defaults.headers.common['authorization-x-token'] = token
+  const response = await API({method:"get",url:"/users/uploads"})
+}else{
+  delete API.defaults.headers.common['authorization-x-token']
+  
+}
+
+
+*/

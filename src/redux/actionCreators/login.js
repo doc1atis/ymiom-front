@@ -8,7 +8,7 @@ const login = (userInfo) => {
     try {
       const response = await API.post("/users/login", userInfo);
       localStorage.setItem("token", response.data.token);
-      dispatch({ type: LOGIN, payload: true });
+      dispatch({ type: LOGIN, payload: response.data.token });
       history.push("/");
       toast.success("login successfully", {
         position: toast.POSITION.TOP_CENTER,

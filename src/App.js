@@ -6,14 +6,9 @@ import LoginForm from "./components/LoginForm/LoginForm";
 import RegisterForm from "./components/RegisterForm/RegisterForm";
 import HomePage from "./components/HomePage/HomePage";
 import history from "./history";
-import { connect } from "react-redux";
-import checkToken from "./redux/actionCreators/checkToken";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
-
+import Upload from "./components/Upload/Upload";
 class App extends Component {
-  componentDidMount() {
-    this.props.checkToken();
-  }
   render() {
     return (
       <Router history={history}>
@@ -44,12 +39,13 @@ class App extends Component {
           >
             <Switch>
               <Route path="/" exact component={HomePage} />
-              <Route path="/login" exact component={RequireAuth(LoginForm)} />
               <Route
-                path="/register"
+                path="/uploads"
                 exact
-                component={RequireAuth(RegisterForm)}
+                component={RequireAuth(Upload, "/login")}
               />
+              <Route path="/login" exact component={LoginForm} />
+              <Route path="/register" exact component={RegisterForm} />
               <Route render={() => <div>not found</div>} />
             </Switch>
           </div>
@@ -59,4 +55,4 @@ class App extends Component {
   }
 }
 
-export default connect(null, { checkToken })(App);
+export default App;

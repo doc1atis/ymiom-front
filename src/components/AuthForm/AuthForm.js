@@ -9,7 +9,16 @@ import history from "../../history";
 class AuthForm extends Component {
   state = { username: "", password: "" };
   toastId = null;
-
+  componentDidMount() {
+    if (this.props.isAuth) {
+      history.push("/");
+    }
+  }
+  componentDidUpdate() {
+    if (this.props.isAuth) {
+      history.push("/");
+    }
+  }
   handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -73,5 +82,7 @@ class AuthForm extends Component {
     );
   }
 }
-
-export default connect(null, { login })(AuthForm);
+const mapStateToProps = (state) => {
+  return { isAuth: state.authReducer.isAuth };
+};
+export default connect(mapStateToProps, { login })(AuthForm);

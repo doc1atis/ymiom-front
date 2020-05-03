@@ -8,6 +8,7 @@ import { Provider } from "react-redux";
 import { createStore, compose, applyMiddleware } from "redux";
 import allReducers from "./redux/allReducers";
 import { toast, Bounce } from "react-toastify";
+import checkToken from "./redux/actionCreators/checkToken";
 // CONFIGURE TOAST ONCE AT ENTRY POINT OF APP
 toast.configure({
   autoClose: 2000,
@@ -21,6 +22,7 @@ toast.configure({
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   allReducers,
+  { authReducer: { isAuth: checkToken().payload } }, // initialize the state before app start up
   composeEnhancers(applyMiddleware(reduxThunk))
 );
 
