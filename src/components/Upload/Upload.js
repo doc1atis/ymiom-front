@@ -7,6 +7,20 @@ export default class Upload extends Component {
     console.dir(response);
   }
   render() {
-    return <div className="upload">uploads</div>;
+    return (
+      <div className="upload">
+        <div className="upload-options">
+          <button className="upload-options-button" type="button">
+            upload a single
+          </button>
+          <button className="upload-options-button" type="button">
+            upload and album
+          </button>
+          <button className="upload-options-button" type="button">
+            my uploads
+          </button>
+        </div>
+      </div>
+    );
   }
 }

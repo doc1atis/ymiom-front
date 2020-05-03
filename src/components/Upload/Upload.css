@@ -1,3 +1,21 @@
 .upload {
   background-color: lavender;
+  height: 100%;
+}
+.upload-options {
+  background-color: lightblue;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.upload-options-button {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  width: max-content;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  border-radius: 10px;
 }
