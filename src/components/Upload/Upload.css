@@ -1,21 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap");
 .upload {
-  background-color: lavender;
   height: 100%;
 }
 .upload-options {
-  background-color: lightblue;
+  background-color: #0e0f16f7;
+
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+
 .upload-options-button {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
   cursor: pointer;
   width: max-content;
-  padding-left: 1.2rem;
-  padding-right: 1.2rem;
-  padding-top: 0.8rem;
-  padding-bottom: 0.8rem;
-  border-radius: 10px;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  border-radius: 80px;
+  outline: none;
+  border: 2px solid rgb(89, 205, 174);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1b1c;
+  /* #282b2d */
+}
+
+.options-icon {
+  color: #f9f4f5;
+  font-size: 1.6rem;
+  margin-right: 3px;
+}
+.options-text {
+  /* #b9cd57 */
+  color: lavender;
+  font-size: 0.7rem;
+  font-family: "Dosis", sans-serif;
+  text-transform: uppercase;
+}
+.my-uploads-button {
+  border-radius: 6px;
+  background-color: rgb(43, 42, 46);
+  border-color: rgb(205, 205, 89);
+}
+@media (min-width: 600px) {
+  .upload-options-button {
+    margin-left: 2.8rem;
+  }
+  .my-uploads-button {
+    margin-left: auto;
+    margin-right: 1.2rem;
+  }
+}
+.my-uploads-text {
+  color: turquoise;
 }

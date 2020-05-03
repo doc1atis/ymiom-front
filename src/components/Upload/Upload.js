@@ -11,13 +11,25 @@ export default class Upload extends Component {
       <div className="upload">
         <div className="upload-options">
           <button className="upload-options-button" type="button">
-            upload a single
+            <span className="options-icon">
+              <i className="fas fa-arrow-alt-circle-up"></i>
+            </span>
+            <span className="options-text">upload a single</span>
           </button>
           <button className="upload-options-button" type="button">
-            upload and album
+            <span className="options-icon">
+              <i className="fab fa-creative-commons-sampling-plus"></i>
+            </span>
+            <span className="options-text">upload an album</span>
           </button>
-          <button className="upload-options-button" type="button">
-            my uploads
+          <button
+            className="upload-options-button my-uploads-button"
+            type="button"
+          >
+            <span className="options-icon">
+              <i className="fas fa-cubes"></i>
+            </span>
+            <span className="options-text my-uploads-text">my uploads</span>
           </button>
         </div>
       </div>

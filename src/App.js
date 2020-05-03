@@ -32,7 +32,6 @@ class App extends Component {
           <div
             id="app-body"
             style={{
-              backgroundColor: "#0B0C10",
               gridRowStart: "2",
               gridRowEnd: "-1",
             }}
@@ -43,6 +42,7 @@ class App extends Component {
                 path="/uploads"
                 exact
                 component={RequireAuth(Upload, "/login")}
+                // component={Upload}
               />
               <Route path="/login" exact component={LoginForm} />
               <Route path="/register" exact component={RegisterForm} />
