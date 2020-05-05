@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import "./NavBar.css";
 import SearchBar from "../SearchBar/SearchBar";
 import RightMenu from "../RightMenu/RightMenu";
-
+import { Link } from "react-router-dom";
 export default class NavBar extends Component {
   render() {
     return (
       <div id="navbar" className="navbar">
-        <h2 className="brand-word">
+        <Link to="/" className="brand-word">
           <i className="fab fa-mix"></i>iom
-        </h2>
+        </Link>
         <SearchBar />
 
         <RightMenu />

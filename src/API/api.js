@@ -5,6 +5,7 @@ export default Axios.create({
     process.env.REACT_APP_APP_PHASE === "development"
       ? "http://localhost:3001/api"
       : "/api",
+  // headers: { "Content-Type": "multipart/form-data" },
 });
 
 // Alter defaults after instance has been created

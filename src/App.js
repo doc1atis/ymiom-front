@@ -41,8 +41,8 @@ class App extends Component {
               <Route
                 path="/uploads"
                 exact
-                component={RequireAuth(Upload, "/login")}
-                // component={Upload}
+                // component={RequireAuth(Upload, "/login")}
+                component={Upload}
               />
               <Route path="/login" exact component={LoginForm} />
               <Route path="/register" exact component={RegisterForm} />

@@ -17,8 +17,9 @@
 }
 .brand-word {
   color: #fafafb;
-  cursor: pointer;
+  text-decoration: none;
   text-transform: uppercase;
+  font-size: 1.5rem;
   font-family: "Righteous", cursive;
   margin-left: 20px;
 }
