@@ -64,11 +64,14 @@ export default class Upload extends Component {
             marginRight: "15%",
           }}
         />
+
         <audio
-          src="http://localhost:3001/api/users/beka/754337dd-7f16-4715-ac65-96a7221ce9a7kite san blame.mp3"
           controls
+          src="http://localhost:3001/api/users/beka/754337dd-7f16-4715-ac65-96a7221ce9a7kite san blame.mp3"
           crossOrigin="anonymous"
-        />
+        >
+          Your browser does not support the audio tag.
+        </audio>
       </div>
     );
   }
