@@ -54,7 +54,7 @@ export default class Upload extends Component {
           />
         </form>
         <img
-          src="http://localhost:3001/api/users/beka/beed3d3e-16c9-4502-842e-117a7c3d98cacreative.jpg"
+          src="https://www.olgymiom.com/api/users/beka/beed3d3e-16c9-4502-842e-117a7c3d98cacreative.jpg"
           alt="cover"
           crossOrigin="anonymous"
           style={{
@@ -67,7 +67,7 @@ export default class Upload extends Component {
 
         <audio
           controls
-          src="http://localhost:3001/api/users/beka/754337dd-7f16-4715-ac65-96a7221ce9a7kite san blame.mp3"
+          src="https://www.olgymiom.com/api/users/beka/754337dd-7f16-4715-ac65-96a7221ce9a7kite san blame.mp3"
           crossOrigin="anonymous"
         >
           Your browser does not support the audio tag.
